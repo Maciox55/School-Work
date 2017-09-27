@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=name\ hitPoints\ strength
+comment0.target=Hero(java.lang.String,\ int,\ int)
+comment1.params=increase
+comment1.target=void\ increaseStrength(int)
+comment2.params=increase
+comment2.target=void\ increaseHitPoints(int)
+comment3.params=
+comment3.target=int\ getGold()
+comment4.params=increment
+comment4.target=void\ incGold(int)
+numComments=5

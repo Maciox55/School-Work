@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Dungeon()
+comment1.params=
+comment1.target=void\ pause()
+comment1.text=\r\n\ pause\ for\ user\ input\r\n\ \r\n
+comment2.params=
+comment2.target=boolean\ checkYes()
+comment2.text=\r\n\ check\ if\ the\ answer\ to\ a\ question\ starts\ with\ 'y'\ of\ 'Y'\r\n\ \r\n\ Assume\ that\ any\ other\ answer\ means\ no.\r\n
+comment3.params=hero
+comment3.target=void\ explore(Hero)
+comment3.text=\r\n\ \ The\ hero\ explores\ the\ dungeon\r\n
+numComments=4

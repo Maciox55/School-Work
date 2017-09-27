@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Dungeon02()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Dungeon02\r\n
+comment1.params=hero
+comment1.target=void\ explore(Hero)
+comment1.text=\r\n\ \ The\ hero\ explores\ this\ dungeon\r\n\ \r\n\ @param\ \ hero\ \ \ the\ hero\ of\ the\ game\r\n
+numComments=2

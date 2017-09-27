@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=name\ hitPoints\ strength
+comment0.target=Monster(java.lang.String,\ int,\ int)
+comment1.params=
+comment1.target=java.lang.String\ speak()
+numComments=2
