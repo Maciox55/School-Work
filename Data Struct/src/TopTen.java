@@ -2,7 +2,37 @@
 
 public class TopTen {
 
-    public Node head;
+    private Node head,tail;
+    private int size;
+
+    public static void main(String[] args) {
+        System.out.println("TEST");
+        Node testNode = new Node(10);
+    }
+
+    public void insertFirst(Node n){
+        Node newnode = n;
+        if(head == null){
+            head = newnode;
+            tail = newnode;
+        }else{
+            newnode.next = head;
+            head = newnode;
+            size++;
+        }
+    }
+    public void insertLast(Node n){
+        Node newnode = n;
+        if(head == null){
+            insertFirst(n);
+        }else{
+           tail.next = newnode;
+           tail = newnode;
+        }
+
+    }
+
+
     static class Node{
         private int score;
         private Node next;
@@ -25,10 +55,7 @@ public class TopTen {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println("TEST");
-        Node testNode = new Node(10);
-    }
+
 
 }
 
