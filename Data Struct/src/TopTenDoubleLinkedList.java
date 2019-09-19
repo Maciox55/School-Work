@@ -1,17 +1,16 @@
 /*
     Author: Maciej Bregisz
-    Desc: Implements and uses the singly linked list to keep track of top 10 scores,
+    Desc: Implements and uses the double linked list to keep track of top 10 scores,
 
  */
-
-public class TopTen {
+public class TopTenDoubleLinkedList {
     //Main function of the program, could also be called the Game
     public static void main(String[] args) {
         //Utility arrays
         String[] names = {"Jack", "Mac", "Pat", "Nick", "Seba", "Trev", "Deb", "Jeb", "Gav", "Slav", "Joe"};
         int[] scores = {31,64,72,85,90,34,55,66,79,99,100};
         //instanciate new list
-        SLList list = new SLList();
+        DLList list = new DLList();
         //Populating the scoreboard with scores and names dynamically, unsorted from the above arrays
         for(int i= 0; i < names.length;i++)
         {
@@ -25,6 +24,7 @@ class Node{
     private String name;
     private int score;
     private Node next;
+    private Node prev;
 
     Node(String n, int s){
         score = s;
@@ -43,6 +43,12 @@ class Node{
     public Node GetNext(){
         return this.next;
     }
+    public void SetPrev(Node p){
+        this.prev = p;
+    }
+    public Node GetPrev(){
+        return this.prev;
+    }
     public void SetName(String n)
     {
         this.name = n;
@@ -52,13 +58,13 @@ class Node{
     }
 }
 //Defines the Singly linked list Class and its constructor, all variables public to save paper
-class SLList {
+class DLList {
     public Node head;
     public Node tail;
     public Node descending;
     public int size;
 
-    public SLList(){
+    public DLList(){
         head = null;
         tail = null;
         size = 0;
