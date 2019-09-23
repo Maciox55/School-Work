@@ -147,7 +147,8 @@ class DLList {
         while(current != null)
         {
             next = current.GetNext();
-            current.SetNext(prev);
+            current.SetNext(prev);     //Preserves the link between nodes, previous of current becomes next
+            current.SetPrev((next));     //Next of current becomes previous node
             prev = current;
             current = next;
         }
