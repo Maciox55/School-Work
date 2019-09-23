@@ -3,14 +3,13 @@
     Desc: Implements and uses the singly linked list to keep track of top 10 scores,
 
  */
-
 public class TopTen {
     //Main function of the program, could also be called the Game
     public static void main(String[] args) {
         //Utility arrays
         String[] names = {"Jack", "Mac", "Pat", "Nick", "Seba", "Trev", "Deb", "Jeb", "Gav", "Slav", "Joe"};
         int[] scores = {31,64,72,85,90,34,55,66,79,99,100};
-        //instanciate new list
+        //Instanciates new list of scores
         SLList list = new SLList();
         //Populating the scoreboard with scores and names dynamically, unsorted from the above arrays
         for(int i= 0; i < names.length;i++)
@@ -25,7 +24,7 @@ class Node{
     private String name;
     private int score;
     private Node next;
-
+    //Node constructor
     Node(String n, int s){
         score = s;
         name = n;
@@ -58,6 +57,7 @@ class SLList {
     public Node descending;
     public int size;
 
+    //Single linked list constructor
     public SLList(){
         head = null;
         tail = null;
@@ -82,17 +82,7 @@ class SLList {
         }
 
     }
-
-    public void insertLast(Node n) {
-        if (head == null) {
-            insert(n);
-        } else {
-            tail.SetNext(n);
-            tail = n;
-            size++;
-        }
-
-    }
+    //Utility function, reverses the scores from ascending to descending order.
     public Node reverse(Node n)
     {
         Node prev = null;
@@ -108,8 +98,8 @@ class SLList {
         return prev;
 
     }
-
-    public void delete(Node n) {
+    //finds and removes a node from a single linked list
+    public void remove(Node n) {
         if (n == head) {
             head = n.GetNext();
         } else {
@@ -120,7 +110,7 @@ class SLList {
             }
         }
     }
-
+    //Utility method to display the results of the top 10 scores.
     public void display() {
         Node n = this.reverse(this.head);
         int i = 0;
