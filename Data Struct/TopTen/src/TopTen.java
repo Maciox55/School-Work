@@ -16,7 +16,7 @@ public class TopTen {
         {
             list.insert(new Node(names[i],scores[i]));
         }
-        list.display(); //
+        list.display();
     }
 }
 //Defines Node class and its constructor
@@ -124,3 +124,9 @@ class SLList {
         }
     }
 }
+
+OUTPUT:
+        Top Ten Scores! (Sorted, Descending)
+        Joe : 100, Slav : 99, Seba : 90, Nick : 85, Gav : 79, Pat : 72, Jeb : 66, Deb : 55, Trev : 34, Jack : 31,
+
+
