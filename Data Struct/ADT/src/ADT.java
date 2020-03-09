@@ -1,118 +1,105 @@
-import java.util.Scanner;
-import java.util.Stack;
-
+//Maciej Bregisz
+//Project 2
 public class ADT {
+        private int sizeMax;
+        private int[] stack;
+        private int redSize;
+        private int blueSize;
+        private int baseIndex;
 
-    // stacks declared
-    Stack<Integer> red;
-    Stack<Integer> blue;
+        public ADT(int red, int blue){
+            sizeMax = red + blue + 1;
+            stack = new int[sizeMax];
+            baseIndex = blue;
+            redSize = baseIndex+1;
+            blueSize = baseIndex-1;
 
-    //constructor
-    public ADT(Stack<Integer> red, Stack<Integer> blue) {
-        this.red = red;
-        this.blue = blue;
-    }
-
-    //inserting new
-    public void redPush(int data) {
-        insert(data);
-    }
-    //inserting
-    public void bluePush(int data) {
-        insert(data);
-    }
-    //removes from stack
-    public int pop() {
-        if (red.size() == 0){
-            System.out.print("There are no more elements to be removed");
         }
-        return red.pop();
-    }
-
-    public void insert(int data) {
-        //Check if red is empty
-        if (red.size() == 0) {
-            red.push(data);
-        } else {
-            //Add from red to blue
-            int l = red.size();
-            for (int i = 0; i < l; i++) {
-                blue.push(red.pop());       //
+        public void redPush(int a){
+            if (redSize == sizeMax){
+                System.out.println("Red stack is full");
             }
-            //Pushes new element to red
-            red.push(data);
-            for (int i = 0; i < l; i++) {
-                red.push(blue.pop());
+            else {
+                stack[redSize] = a;
+                redSize++;
             }
         }
-    }
-
-
-    //checking for stack empty
-    public boolean isEmpty() {
-        return red.size() == 0;
-    }
-
-    //size of stack
-    public int getSize() {
-        return red.size();
-    }
-
-    //printing stack
-    public void display() {
-        System.out.print("\nStack: ");
-        int l = getSize();
-        if (l == 0) {
-            System.out.print("Stack Empty\n");
-        } else {
-            for (int i = l - 1; i >= 0; i--) {
-                System.out.print(red.get(i) + " ");
+        public void bluePush(int a){
+            if (blueSize == -1){
+                System.out.println("Blue stack is full");
             }
-            System.out.println();
+            else {
+                stack[blueSize] = a;
+                blueSize--;
+            }
         }
-    }
+        public int bluePop(){
+            if (blueSize == baseIndex-1){
+                System.out.println("Blue stack is empty");
+                return -1;
+            }
+            else {
+                blueSize++;
+                return stack[blueSize];
+
+            }
+        }
+        public int redPop(){
+            if (redSize == baseIndex+1){
+                System.out.println("Red stack is empty");
+                return -1;
+            }
+            else {
+                redSize--;
+                return stack[redSize];
+
+            }
+        }
+        public boolean isRedEmpty(){
+            return (redSize == baseIndex+1);
+        }
+        public boolean isBlueEmpty(){
+            return (blueSize == baseIndex-1);
+        }
+        public boolean isRedFull(){
+            return (redSize == sizeMax);
+        }
+        public boolean isBlueFull(){
+            return (blueSize == -1);
+        }
+        public int peekRed(){
+            return stack[redSize-1];
+        }
+        public int peekBlue(){
+            return stack[blueSize+1];
+        }
 
     public static void main(String args[]) {
-        Stack<Integer> red = new Stack<Integer>();
-        Stack<Integer> blue = new Stack<Integer>();
-        ADT stack = new ADT(red,blue);
-        Scanner sc = new Scanner(System.in);
-        //Manu loop
-        while(true){
-            System.out.println("1. Push on Blue Stack 2.Red stack push 3. pop 4.Size 5.Check if Empty 6.Display 7.Exit");
-            int choice = sc.nextInt();
-            //Blue stack push
-            if(choice == 1){
-                System.out.println("Enter number to insert: ");
-                int num = sc.nextInt();
-                stack.bluePush(num);
-            }
-            //Red stack push
-            else if(choice == 2){
-                System.out.println("Enter number to insert: ");
-                int num = sc.nextInt();
-                stack.redPush(num);
-            }
-            //Pop data option
-            else if(choice == 3){
-                System.out.println("Pop: "+stack.pop());
-            }
-            //getting size of stack
-            else if(choice == 4){
-                System.out.println("Size: "+stack.getSize());
-            }
-            //checking empty stack or not
-            else if(choice == 5){
-                System.out.println(stack.isEmpty());
-            }
-            //displaying stack data
-            else if(choice == 6) {
-                stack.display();
-            }
-            else{
+        ADT stack = new ADT(10,10);
+        stack.redPush(14);
+        stack.redPush(15);
+        stack.redPush(11);
+        stack.redPush(91);
 
-                break;
-            }
-        }
+        System.out.println(stack.redPop());
+        System.out.println(stack.redPop());
+        System.out.println(stack.redPop());
+
+        stack.bluePush(132);
+        stack.bluePush(145);
+        stack.bluePush(152);
+        stack.bluePush(169);
+
+        System.out.println(stack.bluePop());
+        System.out.println(stack.bluePop());
+        System.out.println(stack.bluePop());
+
     }
 }
+============ OUTPUT ================
+        91
+        11
+        15
+        169
+        152
+        145
